@@ -13,6 +13,7 @@
             })
             .state('album', {
               url: '/album',
+              //added for assignment 5
               controller: 'AlbumCtrl as album',
               templateUrl: '/templates/album.html'
             })
