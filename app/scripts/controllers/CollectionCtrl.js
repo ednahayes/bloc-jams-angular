@@ -1,14 +1,13 @@
 (function() {
-    function CollectionCtrl() {
+    function CollectionCtrl(Fixtures) {
       // this was part of the assignment -6 not merged
       //   this.albums = Fixtures.getCollection(12); should replace below?
-        this.albums = [];
-        for (var i=0; i < 12; i++) {
-            this.albums.push(angular.copy(albumPicasso));
-          }
+        this.albums = Fixtures.getCollection(12);
+
     }
+
 
     angular
         .module('blocJams')
-        .controller('CollectionCtrl', CollectionCtrl);
+        .controller('CollectionCtrl', ['Fixtures', CollectionCtrl]);
 })();
