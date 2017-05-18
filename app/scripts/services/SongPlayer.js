@@ -41,8 +41,7 @@
          */
          var setSong = function(song) {
             if (currentBuzzObject) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong();
             }
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -104,8 +103,7 @@
               currentSongIndex--;
 
               if (currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong();
 
               } else {
                     var song = currentAlbum.songs[currentSongIndex];
@@ -113,6 +111,35 @@
                     playSong(song);
               }
           };
+
+          /**
+          * @function next
+          * @desc next song
+          * @param {Number} index
+          */
+          SongPlayer.next =  function () {
+              var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+              currentSongIndex++;
+                  if (currentSongIndex > -1) {
+                    stopSong();
+
+                  } else {
+                        var song = currentAlbum.songs[currentSongIndex];
+                        setSong(song);
+                        playSong(song);
+                      }
+          };
+
+          /**
+          * @function stopSong
+          * @desc stop current playing song
+          * @param {Object} song
+          */
+          var stopSong = function(song) {
+                currentBuzzObject.stop();
+                //don't know if should be song.playing = null instead of below assig 8
+                SongPlayer.currentSong.playing = null;
+          }
 
 
          return SongPlayer;
