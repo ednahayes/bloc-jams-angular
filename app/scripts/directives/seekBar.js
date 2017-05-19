@@ -47,6 +47,11 @@
                 return {width: percentString()};
               };
 
+              scope.thumbStyle = function() {
+                return {width: percentString()};
+              }
+
+
               scope.onClickSeekBar = function(event) {
                   var percent = calculatePercent(seekBar, event);
                   scope.value = percent * scope.max;
@@ -59,6 +64,9 @@
                          scope.value = percent * scope.max;
                         });
                      });
+
+
+
 
                      $document.bind('mouseup.thumb', function() {
                          $document.unbind('mousemove.thumb');
