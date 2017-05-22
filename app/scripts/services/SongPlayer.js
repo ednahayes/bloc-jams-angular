@@ -46,7 +46,10 @@
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
-                preload: true
+                preload: true,
+                autoplay: true,
+                
+
             });
 
             SongPlayer.currentSong = song;
@@ -61,7 +64,12 @@
          var playSong = function(song) {
            currentBuzzObject.play();
            song.playing = true;
+
          }
+
+
+
+
 
          /**
          * @function play
@@ -74,9 +82,11 @@
                   setSong(song);
                   playSong(song);
 
+
               } else if (SongPlayer.currentSong === song) {
                     if (currentBuzzObject.isPaused()) {
                         playSong(song);
+
                         }
                     }
           };
