@@ -46,6 +46,10 @@
                    scope.max = newValue;
                });
 
+               attributes.$observe('volume', function(newValue) {
+                  scope.volume = newValue;
+               });
+
 
                var percentString = function () {
                  var value = scope.value;
@@ -58,6 +62,8 @@
                 return {width: percentString()};
               };
 
+
+              //assignment 9 acting funny
               scope.thumbStyle = function() {
                 return {width: percentString()};
               }
@@ -84,11 +90,11 @@
                       * @param {Number} new Value
                       */
 
-                     var notifyOnChange = function(newValue) {
-                         if (typeof scope.onChange === 'function') {
-                             scope.onChange({value: newValue});
-                         }
-                     };
+                var notifyOnChange = function(newValue) {
+                    if (typeof scope.onChange === 'function') {
+                        scope.onChange({value: newValue});
+                     }
+                 };
 
 
 

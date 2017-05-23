@@ -51,15 +51,14 @@
          * @param {Object} song
          */
          var setSong = function(song) {
-            if (currentBuzzObject) {
-                stopSong();
-            }
+             if (currentBuzzObject) {
+                 currentBuzzObject.stop();
+                 SongPlayer.currentSong.playing = null;
+             }
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
                 formats: ['mp3'],
                 preload: true,
-
-
 
             });
 
@@ -163,10 +162,17 @@
           * @desc Set current time (in seconds) of currently playing song
           * @param {Number} time
           */
-          SongPlayer.setCurrentTime = function(time) {
+          SongPlayer.setCurrentTime = function(newValue) {
               if (currentBuzzObject) {
                   currentBuzzObject.setTime(time);
               }
+          };
+
+          SongPlayer.setVolume = function (volume) {
+              if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+              }
+
           };
 
           /**
