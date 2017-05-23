@@ -57,10 +57,17 @@
              }
 
             currentBuzzObject = new buzz.sound(song.audioUrl, {
+
                 formats: ['mp3'],
                 preload: true,
 
             });
+
+            //assignment 11
+        //    currentBuzzObject = new buzz.sound(song.audioUrl, {
+        //    timer = buzz.toTimer(currentBuzzObject.getDuration()),
+        //    document.getElementByClass("totalTime").innerHTML = timer;
+        //  });
 
             currentBuzzObject.bind('timeupdate', function() {
                 $rootScope.$apply(function() {
