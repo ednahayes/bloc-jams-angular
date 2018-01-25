@@ -46,9 +46,7 @@
                    scope.max = newValue;
                });
 
-               attributes.$observe('volume', function(newValue) {
-                  scope.volume = newValue;
-               });
+
 
 
                var percentString = function () {
@@ -65,7 +63,7 @@
 
               //assignment 9 acting funny
               scope.thumbStyle = function() {
-                return {width: percentString()};
+                return {left: percentString()};
               }
 
 
