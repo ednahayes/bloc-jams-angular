@@ -36,7 +36,7 @@
                 return albumPicasso;
 
               };
-//assignment 6 not merged but shows up
+
               Fixtures.getCollection = function(numberOfAlbums) {
                   this.objects = [];
                   for (var i = 0; i < 12; i++) {
