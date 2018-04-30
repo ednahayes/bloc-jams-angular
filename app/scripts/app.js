@@ -1,6 +1,8 @@
 (function() {
     function config($stateProvider, $locationProvider) {
         $locationProvider
+        // the hashband ("#!") URLs are disabled by setting html5Mode method enabled property to true
+        // requireBase property to false is unrelated but avoids a common $location error
           .html5Mode({
               enabled: true,
               requireBase: false
